@@ -1,6 +1,8 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
-const LogAPI = require('./LogAPI');
+const LogAPI = require('./logAPI');
 
 const app = express();
 app.use(bodyParser.json());
@@ -22,10 +24,10 @@ app.post('/api', (req, res) => {
         const logApi = new LogAPI();
         const result = logApi.OnEvent(req.body);
 
-        console.log("---------------------REQUEST----------------");
+        console.log("-----------------------REQ------------------");
         console.log(req.body);
         console.log("--------------------------------------------");
-        console.log("---------------------RESPONSE---------------");
+        console.log("-----------------------RES------------------");
         console.log(result);
         console.log("--------------------------------------------");
         // Return the result as JSON
