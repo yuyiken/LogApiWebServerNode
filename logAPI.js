@@ -1,5 +1,3 @@
-const {chat} = require('./chatgpt')
-
 class LogAPI {
     /**
      * Method to handle the received event
@@ -86,13 +84,13 @@ class LogAPI {
      * @returns {Object|null} Result containing commands or null.
      */
 
-    
+    /*
     ClientPutInServer(Event, Server, Player) {
        
         return null;
-    }
+    }*/
     
-    /* 
+    
     ClientPutInServer(Event, Server, Player) {
         // Prepare the response
         const result = {};
@@ -112,7 +110,7 @@ class LogAPI {
         // Return result to the API
         return result;
     }
-    */
+    
     /**
      * Method to handle the ClientDisconnect event
      * @param {string} Event - Event name.
@@ -170,27 +168,7 @@ class LogAPI {
      * @returns {Object|null} LogAPI commands for the server or null.
      */
     async ClientSay(Event, Server, Player, Type, Message) {
-        // Prepare the result
-
-        const result = {};
-
-        //Here you can add any condition like startwith split etc.. 
-        switch (Message.split(' ')[0]) {
-            case "/":
-
-                 let msg = Message.substring(Message.indexOf(' ') + 1)
-                 let gptAnswer = await chat(msg, Server);
-
-                    result["PrintChat"] = {
-                    EntityId: 0,
-                    Message: `^4${process.env.CHATPREFIX || '*'}^1: ${gptAnswer}`
-                };
-                break;
-            default:
-                return null;
-        }
-
-        return result;
+        return null;
 
     }
 
